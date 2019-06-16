@@ -5,26 +5,38 @@ import io.swagger.annotations.ApiModelProperty;
 public class ExecuteResponse {
 	
     @ApiModelProperty(notes = "Execution result code", required =true)
-    private String resultCode;
+    private int resultCode = 0;
+
+    @ApiModelProperty(notes = "Execution result message", required =true)
+    private String resultMessage = "OK";
 
     @ApiModelProperty(notes = "Execution result of Rover 1 movements" , readOnly =true)
-    private String resultRover1;
+    private String resultRover1 = "";
     
     @ApiModelProperty(notes = "Execution result of Rover 2 movements" , readOnly =true)
-    private String resultRover2;
+    private String resultRover2 = "";
 
-    public ExecuteResponse(String resultCode, String resultRover1, String resultRover2) {
+    public ExecuteResponse(int resultCode, String errorMessage, String resultRover1, String resultRover2) {
     	this.resultCode = resultCode;
+    	this.resultMessage = errorMessage;
     	this.resultRover1 = resultRover1;
     	this.resultRover2 = resultRover2;    	
     }
-
-	public String getResultCode() {
+    
+	public int getResultCode() {
 		return resultCode;
 	}
 
-	public void setResultCode(String resultCode) {
+	public void setResultCode(int resultCode) {
 		this.resultCode = resultCode;
+	}
+
+	public String getResultMessage() {
+		return resultMessage;
+	}
+
+	public void setResultMessage(String resultMessage) {
+		this.resultMessage = resultMessage;
 	}
 
 	public String getResultRover1() {

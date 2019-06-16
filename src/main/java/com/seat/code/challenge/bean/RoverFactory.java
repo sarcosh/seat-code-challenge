@@ -8,10 +8,10 @@ public class RoverFactory {
 		Rover rover = null;
 		
 		if(hasMalfunctionalMC) {
-			rover = new Rover(x, y, orientation, new FaultyMovementController());
+			rover = new Rover(x, y, orientation, new FaultyNavigationController());
 			
 		} else {
-			rover = new Rover(x, y, orientation, new CorrectMovementController());
+			rover = new Rover(x, y, orientation, new DefaultNavigationController());
 		}
 		
 		return rover;

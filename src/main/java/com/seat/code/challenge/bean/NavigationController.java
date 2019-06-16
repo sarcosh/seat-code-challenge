@@ -9,13 +9,13 @@ import org.slf4j.LoggerFactory;
 import com.seat.code.challenge.enumerations.Orientation;
 import com.seat.code.challenge.enumerations.Turn;
 
-public abstract class MovementController {
+public abstract class NavigationController {
 
-	private static final Logger log = LoggerFactory.getLogger(MovementController.class);
+	private static final Logger log = LoggerFactory.getLogger(NavigationController.class);
 
 	protected HashMap<String, Orientation> changeMatrix = new HashMap<>();
 	
-	public MovementController() {
+	public NavigationController() {
 		initChangeMatrix();
 	}
 	

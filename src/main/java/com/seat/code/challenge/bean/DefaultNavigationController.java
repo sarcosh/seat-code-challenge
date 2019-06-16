@@ -6,9 +6,9 @@ import org.slf4j.LoggerFactory;
 import com.seat.code.challenge.enumerations.Orientation;
 import com.seat.code.challenge.enumerations.Turn;
 
-public class CorrectMovementController extends MovementController {
+public class DefaultNavigationController extends NavigationController {
 	
-	private static final Logger log = LoggerFactory.getLogger(CorrectMovementController.class);
+	private static final Logger log = LoggerFactory.getLogger(DefaultNavigationController.class);
 
 	protected void initChangeMatrix() {
 		super.changeMatrix.put(Orientation.N + ":" + Turn.R, Orientation.E);

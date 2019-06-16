@@ -5,10 +5,10 @@ import com.seat.code.challenge.enumerations.Orientation;
 
 public class Rover {
 	
-	private MovementController mc = null;
+	private NavigationController mc = null;
 	private Position actualPosition = null;
 	
-	public Rover(int x, int y, Orientation orientation, MovementController mc) {
+	public Rover(int x, int y, Orientation orientation, NavigationController mc) {
 		actualPosition = new Position(x, y, orientation);
 		this.mc = mc;
 	}
