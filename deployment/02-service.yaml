@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: seat-code-challenge-service
+  labels:
+    run: seat-code-challenge
+spec:
+  ports:
+    - port: 8090
+      protocol: TCP
+  selector:
+    app: seat-code-challenge

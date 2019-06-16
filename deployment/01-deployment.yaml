@@ -1,0 +1,53 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: seat-code-challenge-deployment
+  labels:
+    app: seat-code-challenge
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: seat-code-challenge
+  template:
+    metadata:
+      labels:
+        app: seat-code-challenge
+    spec:
+      containers:
+        - name: seat-code-challenge
+          image: docker.io/sarcosh666/seat-code-challenge:latest 
+          imagePullPolicy: Always
+          restartPolicy: OnFailure
+          readinessProbe:
+            tcpSocket:
+              port: 8090
+            initialDelaySeconds: 35
+            periodSeconds: 10
+          livenessProbe:
+            tcpSocket:
+              port: 8090
+            initialDelaySeconds: 40
+            periodSeconds: 15
+            timeoutSeconds: 1
+          resources:
+            limits:
+              cpu: 900m
+              memory: 512Mi
+            requests:
+              cpu: 900m
+              memory: 512Mi
+          ports:
+            - containerPort: 8090
+          command:
+            - "bin/sh"
+            - "-c"
+            - "/launcher.sh"
+          volumeMounts:
+            - name: config-volume
+              mountPath: /config
+              readOnly: true
+      volumes:
+        - name: config-volume
+          configMap:
+            name: configmap-seat-code-challenge
