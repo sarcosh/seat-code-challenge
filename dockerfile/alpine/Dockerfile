@@ -3,8 +3,8 @@ FROM openjdk:8-jre-alpine
 LABEL maintainer=Sergio\ Arcos\
 	  version=1.0
 
-COPY launcher.sh ./launcher.sh
-COPY app.jar ./app.jar 
+COPY ./dockerfile/alpine/launcher.sh ./launcher.sh
+COPY ./dockerfile/alpine/app.jar ./app.jar 
 
 RUN chmod +x ./launcher.sh
 
