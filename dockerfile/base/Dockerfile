@@ -5,6 +5,4 @@ LABEL maintainer=Sergio\ Arcos\
 
 COPY ./dockerfile/base/hardening.sh ./hardening.sh
 
-RUN chmod +x ./hardening.sh
-
-RUN ./hardening.sh
+RUN chmod o+x ./hardening.sh && sh ./hardening.sh && rm ./hardening.sh
